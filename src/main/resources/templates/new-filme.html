@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes-Marvel</title>
+</head>
+<body>
+
+    <h1>Adicionar novo Filme</h1>
+
+    <form th:action="@{/filme}" th:object="${filme}" method="post">
+        <span th:if="${#fields.hasErrors('filme')}" th:errors="*{filme}">Nome do Filme:</span>
+        <input type="text" name="filme"     th:field="*{filme}" th:placeholder="Filme"/> <br/>
+
+        <br/>
+        <span th:if="${#fields.hasErrors('ano')}" th:errors="*{ano}">Ano do Filme: </span>
+        <input type="text" name="ano" th:field="*{ano}" th:placeholder="Ano"/> <br/>
+
+        <br/>
+        <button type="submit">Salvar Filme</button>
+    </form>
+
+    <br>
+
+    <a th:href="@{/filme}">Filme</a>
+
+</body>
+</html>
